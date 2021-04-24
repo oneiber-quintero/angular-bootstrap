@@ -1,0 +1,11 @@
+#footer{
+    background: -webkit-linear-gradient(0deg,#1c3643,#273b47 25%,#1e5372);
+    background: -moz-linear-gradient(0deg,#1c3643 0,#273b47 25%,#1e5372);
+    background: -o-linear-gradient(0deg,#1c3643 0,#273b47 25%,#1e5372);
+    background: -ms-linear-gradient(0deg,#1c3643 0,#273b47 25%,#1e5372);
+    background: linear-gradient(90deg,#1c3643,#273b47 25%,#1e5372);
+}
+
+#footer a {
+    color: #FFF
+}

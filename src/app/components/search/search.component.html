@@ -1,0 +1,22 @@
+<div class="background-search sticky">
+    <div class="container pb-2 pt-2 pr-0 pl-0">
+        
+        <div class="btn-group offset-sm-2 offset-xs-0 col-sm-8 col-xs-12">
+    
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>{{ select }}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem id="all" (click)="onCategory('all')" >all</button>
+                  <button ngbDropdownItem id="sciencie" (click)="onCategory('sciencie')" >sciencie</button>
+                  <button ngbDropdownItem id="education" (click)="onCategory('education')" >education</button>
+                  <button ngbDropdownItem id="feelings" (click)="onCategory('feelings')" >people</button>
+                  <button ngbDropdownItem id="computer" (click)="onCategory('computer')" >computer</button>
+                  <button ngbDropdownItem id="buildings" (click)="onCategory('buildings')" >buildings</button>
+                </div>
+            </div>
+            <input (keypress)="eventHandler($event)" id="search" name="search" [formControl]="inputSearch" type="text" class="form-control btn-group" aria-label="Text input with 2 dropdown buttons" placeholder="Que buscas">
+            <button (click)="onSearch()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+
+    </div>
+</div>

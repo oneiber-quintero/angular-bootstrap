@@ -1,0 +1,8 @@
+.sticky {
+    position: sticky;
+    z-index: 1020;
+    top: 88px;
+}
+.background-search {
+    background: linear-gradient( 90deg,#1c3643,#273b47 25%,#1e5372);
+}

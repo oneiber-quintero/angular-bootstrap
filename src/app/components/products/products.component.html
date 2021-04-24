@@ -1,0 +1,14 @@
+<section id="speakers" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center text-uppercase pb-4">
+                <!-- <small>Conoce a los</small> -->
+                <h2>Catálogo</h2>
+            </div>
+            <div class="row">
+                <app-product *ngFor="let image of list" [image]="image"class="col-xs-12 col-sm-6 col-md-3"></app-product>
+            </div> 
+            
+        </div>
+    </div>
+</section>

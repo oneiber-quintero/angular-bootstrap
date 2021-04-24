@@ -1,0 +1,6 @@
+<div class="col-xs-12 mb-4">
+    <div (click)="addImage(img)" class="card">
+        <img src="{{ img.previewURL }}" width="100" height="150" class="card-img-top" alt="...">
+    </div>
+    <div>Current Count: {{ image$ | async }}</div>
+</div>

@@ -1,0 +1,13 @@
+
+.text-highlight {
+    color: var(--text-highlight) !important;
+}
+
+.btn-green {
+    background-color: var(--text-highlight);
+    color: #FFF;
+}
+
+.btn-green:hover {
+    background-color: #82ad36;
+}
