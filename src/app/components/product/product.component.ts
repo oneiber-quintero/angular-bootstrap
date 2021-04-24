@@ -2,7 +2,10 @@ import { Component, OnInit, ViewChild, Input, SimpleChanges,} from '@angular/cor
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Image } from '../../store/image.model';
-import { addImage } from '../../store/image.actions';
+import { AddImage } from '../../store/image.actions';
+import { AppState } from '../../store/image.state';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product',
@@ -13,11 +16,13 @@ export class ProductComponent implements OnInit {
 
   @Input() image: any;
   img: any;
-  // like = faThumbsUp;
-  image$: Observable<Image>
-  
-  constructor(private store: Store<{ image: Image }>) {
-    this.image$ = store.select('image');
+  images: Observable<Image[]>;
+
+  constructor(
+    private _router: Router,
+    private store: Store<AppState>
+  ) {
+      this.images = this.store.select(state => state.image);
   }
 
   ngOnInit(): void {
@@ -29,8 +34,24 @@ export class ProductComponent implements OnInit {
   }
 
   addImage(img: any) {
-    // TODO: Dispatch an increment action
-    this.store.dispatch(addImage());
+    let tags = img.tags.split(",");
+    let newImage: Image = {
+      id: img.id,
+      likes: img.likes,
+      views: img.views,
+      url: img.webformatURL,
+      widthURL: img.webformatWidth,
+      LargeURL: img.largeImageURL,
+      widthLargeURL: img.imageWidth,
+      tags: tags
+    };
+
+    this.store.dispatch({
+      type: 'ADD_IMAGE',
+      payload: newImage
+    });
+    this._router.navigateByUrl("/image-details");
+    
   }
 
 }

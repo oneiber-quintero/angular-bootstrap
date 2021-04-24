@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
 
   }
   
+
   ngOnInit(): void {
     let filters = this.pixabayService.getFilters();
     if( filters ) {
@@ -45,10 +46,9 @@ export class SearchComponent implements OnInit {
    * onSearch es una funcion que se ejecuta cuando
    * se presiona el boton de buscar
    * si es catalogo emite la respuesta a su padre
-   * delo contrario guarda en local storage
+   * de lo contrario guarda en local storage
    */
   onSearch() {
-    console.log("buscar",this.inputSearch);
     if( this._router.url !== "/catalog") {
       this._router.navigateByUrl("/catalog");
       if( this.inputCategory != 'all' || this.inputSearch.valid ) {
@@ -68,7 +68,9 @@ export class SearchComponent implements OnInit {
     }
 
   }
-
+  /**
+   * onCategpry obtiene el valor del dropdown
+   */
   onCategory(category: any) {
     this.inputCategory = category;
     if( category == "all" ) {
@@ -77,7 +79,9 @@ export class SearchComponent implements OnInit {
       this.select = category;
     }
   }
-
+  /**
+   * eventHandler realiza la busqueda al presiona enter en el input
+   */
   eventHandler($event: any) {
     if( $event.keyCode == 13) {
       this.onSearch();

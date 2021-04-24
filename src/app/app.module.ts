@@ -17,11 +17,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PostComponent } from './components/post/post.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { DetailsComponent } from './components/details/details.component';
-
-// import { ImageReducer } from './store/image.reducer';
-
-
-import { imageReducer } from './store/image.reducer';
+import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome'
+import { faCircle,faSquare, faThumbsUp, faEye } from '@fortawesome/free-solid-svg-icons';
+import { addImageReducer } from './store/image.reducer';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -47,11 +45,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({images: imageReducer}),
-    NgbModule
+    StoreModule.forRoot({image: addImageReducer}),
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faCircle,faSquare,faThumbsUp,faEye);
+  }
+}
 

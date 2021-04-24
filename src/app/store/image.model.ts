@@ -3,5 +3,8 @@ export interface Image {
     likes: number;
     views: number;
     url: string;
-    state: string
+    widthURL: number;
+    LargeURL: string;
+    widthLargeURL: number;
+    tags: any;
 }
